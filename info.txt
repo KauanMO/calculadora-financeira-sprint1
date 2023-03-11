@@ -1,0 +1,16 @@
+produtor ganha:
+R$2,20 / litro p ano
+
+dado: março/22
+
+position: absolute; transform: rotate(90deg);
+
+
+
+R$1,50 / litro p mes
+
+dado: jan/20
+
+
+perda de 2% por ano
+perda de 0,25% por mes

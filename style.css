@@ -1,0 +1,45 @@
+:root{
+    --main-blue: #58A1E4;
+    --main-margin: 5rem;
+    --main-padding: 3rem;
+
+    --card-padding: 2rem 2rem;
+    --card-margin: 4rem 4rem
+
+    --card-border-radius: 2rem;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row; 
+}
+
+
+body{
+    padding: var(--main-padding);
+}
+
+
+.d-insert-info{
+    background-color: white;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+}
+
+#tb-resultado{
+    border-spacing: 20px;
+}
+
+#title-table{
+    font-weight: 600;
+    text-align: center;
+}
+
+#info-table{
+    text-align: center;
+}

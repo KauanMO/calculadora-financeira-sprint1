@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de ganhos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body class="flex-row">
+
+    <div class="flex-col d-insert-info">
+        <div class="info">
+            <label>Litros produzidos por ano: </label>
+            <input type="number" id="inpLitros" value="1000" placeholder="10000(L)">
+            <button id="btnSimular" onclick="simular()">Calcular</button>
+        </div>
+
+
+        <div id="resultado">
+            <span id="spResultado">Aqui serão apresentados seus lucros com nossos serviços!</span>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function simular() {
+        litros = Number(document.getElementById('inpLitros').value)
+        let lucroBruto = litros * 2.2
+        let prejuizo = lucroBruto * 0.3
+        let litrosPerdidos = litros * 0.3
+        let ganho = prejuizo - (lucroBruto * 0.1)
+        let lucroSemSolucao = lucroBruto - prejuizo
+        let lucroComSolucao = lucroBruto - ganho
+        let ganhoGeral = lucroComSolucao - lucroSemSolucao
+
+        let lucroBrutoMes = litros * 1.5
+        let litrosPerdidosMes = litros * 0.025
+        let prejuizoMes = lucroBrutoMes * 0.025
+        let ganhoMes = prejuizoMes - (lucroBrutoMes * 0.01)
+        let lucroSemSolucaoMes = lucroBrutoMes - prejuizoMes
+        let lucroComSolucaoMes = lucroBrutoMes - ganhoMes
+        let ganhoGeralMes = lucroComSolucaoMes - lucroSemSolucaoMes
+
+        resultado.innerHTML = `
+        <table id="tb-resultado">
+            <tr>
+                <td id="title-table"></td>
+                <td id="title-table">Sem nossa solução</td>
+                <td id="title-table">Com nossa solução</td>
+                <td id="title-table">Você lucra</td>
+            </tr>
+            <tr>
+                <td id="title-table">Mês</td>
+                <td id="info-table">R$${lucroSemSolucaoMes.toFixed(2)}</td>
+                <td id="info-table">R$${lucroComSolucaoMes.toFixed(2)}</td>
+                <td id="info-table">R$${ganhoGeralMes.toFixed(2)}</td>
+            </tr>
+            <tr>
+                <td id="title-table">Ano</td>
+                <td id="info-table">R$${lucroSemSolucao.toFixed(2)}</td>
+                <td id="info-table">R$${lucroComSolucao.toFixed(2)}</td>
+                <td id="info-table">R$${ganhoGeral.toFixed(2)}</td>
+            </tr>
+        </table>
+        
+        `
+
+
+    }
+</script>
