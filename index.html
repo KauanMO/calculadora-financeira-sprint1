@@ -19,10 +19,16 @@
             <button id="btnSimular" onclick="simular()">Calcular</button>
         </div>
 
+        <br>
 
         <div id="resultado">
             <span id="spResultado">Aqui serão apresentados seus lucros com nossos serviços!</span>
         </div>
+
+        <br>
+
+        <div id="d_contextualizacao"></div>
+
     </div>
 
 </body>
@@ -48,6 +54,8 @@
         let lucroComSolucaoMes = lucroBrutoMes - ganhoMes
         let ganhoGeralMes = lucroComSolucaoMes - lucroSemSolucaoMes
 
+        
+
         resultado.innerHTML = `
         <table id="tb-resultado">
             <tr>
@@ -71,7 +79,28 @@
         </table>
         
         `
+        d_contextualizacao.innerHTML = `
+            <span style="font-size: 21px;">
+                Com nossa solução você diminui o numero de perda de <b>${litrosPerdidos}L</b> para <b>(litrosPerdidosComsolucao)</b>
+                <br>e aumenta seu lucro de <b>R$${lucroSemSolucaoMes}</b> para <b>R$${lucroComSolucaoMes}</b>.
+                <br><br>
+                Também com nossa solução você diminui o prejuizo de <b>R$(valorPerdidoProd)</b> de produção para <b>R$(valorPerdidoProdComSolucao)L.</b>
+            </span>
+            <br><br>
+            
+            <div style="display: flex; gap: 100px">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h2>Lucro atual</h2>
+                    <span style="font-size: 40px;">R$${lucroSemSolucao}</span>
+                </div>
+                
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                    <h2>Lucro com nossa solução</h2>
+                    <span style="font-size: 40px;">R$${lucroComSolucao}</span>
+                </div>    
+            </div>
 
+        `
 
     }
 </script>
